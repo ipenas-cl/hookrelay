@@ -1,0 +1,30 @@
+[package]
+name = "hookrelay"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.88"
+license = "MIT"
+description = "Reliable webhook ingest and relay: HMAC verification, durable SQLite queue, retries with backoff, DLQ, replay."
+repository = "https://github.com/ipenas-cl/hookrelay"
+
+[dependencies]
+axum = "0.7"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "signal", "time", "net"] }
+rusqlite = { version = "0.31", features = ["bundled"] }
+hmac = "0.12"
+sha2 = "0.10"
+hex = "0.4"
+subtle = "2"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
+prometheus = { version = "0.13", default-features = false }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt", "json"] }
+tower-http = { version = "0.5", features = ["cors", "trace"] }
+rand = "0.8"
+thiserror = "1"
+
+[dev-dependencies]
+tower = { version = "0.4", features = ["util"] }
+http-body-util = "0.1"
