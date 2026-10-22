@@ -48,6 +48,8 @@ stateDiagram-v2
 
 ## Quickstart
 
+Requirements: Rust 1.88+ (`rustup update stable`) and something listening on the target URL (any HTTP server that accepts POST).
+
 ```bash
 export HOOKRELAY_SECRET=my-app-secret
 export HOOKRELAY_TARGET_URL=http://localhost:9000/webhooks
